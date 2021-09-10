@@ -1,0 +1,13 @@
+Unable the collision punishment.
+
+
+      self.time_fraction = 0.05
+
+      # Reward function parameters
+      self.distance_rew_factor = 10
+      self.achieve_reward = 10
+      self.collision_punishment = 0
+
+      # Commander
+      # TODO: discussing the exe_time
+      self.cmd_handle = Cmd_Handle(exe_time=0.5, mode='joint_space')

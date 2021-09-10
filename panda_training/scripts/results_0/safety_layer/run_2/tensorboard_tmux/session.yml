@@ -1,0 +1,12 @@
+name: plot
+root: ./
+#startup_window: status
+pre_window: cd ..; source ~/venv/bin/activate; source devel/setup.bash
+windows:
+  - launch_tensorboard:
+      layout: tiled
+      panes:
+        - tensorboard --logdir ./tensorboard
+
+
+
