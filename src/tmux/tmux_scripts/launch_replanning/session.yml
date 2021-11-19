@@ -1,0 +1,15 @@
+name: trainning
+root: ./
+#startup_window: status
+pre_window: cd ../../../..; source ~/venv/bin/activate; source devel/setup.bash; source src/commander/shell_additions/shell_additions.sh
+windows:
+  - rl_interface:
+      layout: tiled
+      panes:
+        - roslaunch rl_interface main.launch world_name:="two_moving_cylinder_x2.world"
+  - replanning:
+      layout: tiled
+      panes:
+        - waitForSimulation; waitForMoveitcd; cd src/panda_replanning/scripts; python replanning.py
+
+

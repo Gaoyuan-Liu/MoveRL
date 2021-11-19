@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/install
+
+Name: rl_interface
+Description: Description of rl_interface
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

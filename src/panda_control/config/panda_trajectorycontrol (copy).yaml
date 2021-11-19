@@ -1,0 +1,38 @@
+panda: 
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  panda_arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    
+    constraints :   
+      stopped_velocity_tolerance : 0
+    
+    gains: # Required because we're controlling an effort interface
+      panda_joint1 : {p: 120.0, i: 0.0, d: 20.0, i_clamp: 2.5}
+      panda_joint2 : {p: 300.0, i: 0.0, d: 20.0, i_clamp: 4.0}
+      panda_joint3 : {p: 180.0, i: 0.0, d: 20.0, i_clamp: 2.5}
+      panda_joint4 : {p: 180.0, i: 0.0, d: 20.0, i_clamp: 2.5}
+      panda_joint5 : {p: 70.0, i: 0.0, d: 4.0, i_clamp: 1.0}
+      panda_joint6 : {p: 20.0, i: 0.0, d: 3.0, i_clamp: 1.0}
+      panda_joint7 : {p: 20.0, i: 0.0, d: 4.0, i_clamp: 1.0}
+
+  joint_leftfinger_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: panda_finger_joint1
+    pid: {p: 5, i: 0, d: 3, i_clamp: 1}
+  joint_rightfinger_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: panda_finger_joint2
+    pid: {p: 5, i: 0, d: 3, i_clamp: 1}
+
+  

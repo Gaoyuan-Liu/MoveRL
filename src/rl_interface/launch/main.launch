@@ -1,0 +1,39 @@
+<launch>
+  
+  <arg name="world_name" default="tasks.world"/>
+  <!-- Launch the world and spawn the robot -->
+  <include file="$(find panda_gazebo)/launch/panda_basic.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+    <!--<arg name="world_name" value="commuting_cylinder.world"/>-->
+    <!--<arg name="world_name" value="two_moving_cylinder.world"/>-->
+  </include>
+
+  <!-- Launch move_group -->
+  <include file="$(find panda_moveit_config)/launch/move_group.launch">
+    <arg name="load_gripper" value="true" />
+    <arg name="fake_execution" value="true"/>
+  </include>
+
+  <!-- Load octomap -->
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch"/>
+  <!--<include file="$(find load_octomap)/launch/load_octomap.launch">
+    <arg name="path" value="/home/liu/panda_rl/maps/result.bt"/>
+  </include>-->
+
+
+  <!-- Controller -->
+  <!-- <include file="$(find panda_control)/launch/panda_trajectorycontrol.launch"/> -->
+  <include file="$(find panda_control)/launch/panda_positioncontrol.launch"/>
+
+  <!-- State space -->
+  <!-- <include file="$(find panda_state)/launch/observation.launch"/> -->
+
+  <!-- Add static objects -->
+  <include file="$(find scene_objects)/launch/add_objects.launch"/>
+  <!--<include file="$(find scene_objects)/launch/dynamic_objects.launch"/>-->
+
+  <node pkg="topic_tools" type="relay" name="relay_joint_states_arm" args="/panda/joint_states /joint_states" />
+
+  <!-- Camera Tfs -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_map" args="0.2 0 0 -1.57 0 -1.57 world camera_link" />
+</launch>

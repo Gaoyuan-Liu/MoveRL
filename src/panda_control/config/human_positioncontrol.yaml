@@ -1,0 +1,11 @@
+simplified_human:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  right_shoulder_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jRightShoulder_rotx
+    pid: {p: 120.0, i: 0.0, d: 20.0, i_clamp: 2.5}

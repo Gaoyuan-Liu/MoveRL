@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: gazebo_grasp_plugin
+Description: Description of gazebo_grasp_plugin
+Version: 1.0.2
+Cflags: -I/home/liu/MoveRL/devel/include -I/home/liu/MoveRL/src/gazebo-pkgs/gazebo_grasp_plugin/include
+Libs: -L${prefix}/lib -lgazebo_grasp_fix
+Requires: gazebo_ros geometry_msgs roscpp std_msgs message_runtime gazebo_version_helpers

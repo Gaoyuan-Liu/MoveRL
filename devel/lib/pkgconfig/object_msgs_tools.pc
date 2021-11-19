@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: object_msgs_tools
+Description: Description of object_msgs_tools
+Version: 1.0.0
+Cflags: -I/home/liu/MoveRL/src/general-message-pkgs/object_msgs_tools/include
+Libs: -L${prefix}/lib -lobject_msgs_tools
+Requires: object_msgs roscpp eigen_conversions tf

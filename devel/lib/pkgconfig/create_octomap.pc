@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: create_octomap
+Description: Description of create_octomap
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

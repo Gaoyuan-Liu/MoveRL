@@ -1,0 +1,13 @@
+<launch>
+    <arg name="load_gripper" default="false"/>
+    <arg name="rviz" default="true"/>
+    
+    <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world panda_link0" />
+
+
+    <!-- Publish the position of the end-effector -->
+    <node pkg="panda_state" type="state" name="state"/>
+
+    <!-- Publish the joint angles -->
+    <node name="joint_state_relay" pkg="topic_tools" type="relay" args="/panda/joint_states /joint_states" />
+</launch>

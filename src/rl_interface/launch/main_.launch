@@ -1,0 +1,30 @@
+<launch>
+  <!-- Launch the world and spawn the robot -->
+  <include file="$(find panda_gazebo)/launch/panda_basic_rl.launch"/>
+
+  <!-- Launch move_group -->
+  <include file="$(find panda_moveit_config)/launch/move_group.launch">
+    <!--<arg name="load_gripper" value="$(arg load_gripper)" />-->
+  </include>
+
+  <!-- Load octomap -->
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" />
+  <!--<node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_map" args="0 0 0 0 0 0 world map" />-->
+  <!--<include file="$(find load_octomap)/launch/load_octomap.launch">
+    <arg name="path" value="/home/liu/panda_rl/maps/result.bt"/>
+  </include>-->
+
+  <include file="$(find scene_objects)/launch/add_objects.launch"/>
+
+  
+
+  <!-- Action space -->
+  <include file="$(find panda_control)/launch/panda_positioncontrol_single.launch"/>
+
+  <!-- State space -->
+  <include file="$(find panda_state)/launch/observation.launch"/>
+
+  <!-- Panda cmd service -->
+  <include file="$(find rl_interface)/launch/cmd_service.launch"/>
+
+</launch>

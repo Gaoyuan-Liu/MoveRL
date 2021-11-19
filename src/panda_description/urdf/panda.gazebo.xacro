@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="panda_gazebo" params="robot_name">
+               
+        <!-- Load Gazebo lib and set the robot namespace -->
+        <gazebo>
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
+                <robotNamespace>/${robot_name}</robotNamespace>
+                <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+                <legacyModeNS>true</legacyModeNS>
+            </plugin>
+        </gazebo>
+
+        <!-- Link 0 -->
+        <gazebo reference="${robot_name}_link0">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 1 -->
+        <gazebo reference="${robot_name}_link1">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 2 -->
+        <gazebo reference="${robot_name}_link2">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 3 -->
+        <gazebo reference="${robot_name}_link3">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 4 -->
+        <gazebo reference="${robot_name}_link4">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 5 -->
+        <gazebo reference="${robot_name}_link5">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 6 -->
+        <gazebo reference="${robot_name}_link6">
+            <material>Gazebo/White</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 7 -->
+        <gazebo reference="${robot_name}_link7">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link 8 -->
+        <gazebo reference="${robot_name}_link8">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link Hand -->
+        <gazebo reference="${robot_name}_hand">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link Right Finger -->
+        <gazebo reference="${robot_name}_rightfinger">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <!-- Link Left Finger -->
+        <gazebo reference="${robot_name}_leftfinger">
+            <material>Gazebo/Grey</material>
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+
+        <gazebo>
+            <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+                <arm>
+                    <arm_name>panda</arm_name>
+                    <palm_link> panda_link7  </palm_link>
+                    <gripper_link> panda_leftfinger </gripper_link>
+                    <gripper_link> panda_rightfinger </gripper_link>
+                </arm>
+                <forces_angle_tolerance>100</forces_angle_tolerance>
+                <update_rate>4</update_rate>
+                <grip_count_threshold>4</grip_count_threshold>
+                <max_grip_count>8</max_grip_count>
+                <release_tolerance>0.005</release_tolerance>
+                <disable_collisions_on_attach>false</disable_collisions_on_attach>
+                <contact_topic>__default_topic__</contact_topic>
+            </plugin>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

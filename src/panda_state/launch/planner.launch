@@ -1,0 +1,9 @@
+<launch> 
+
+    <!-- launch node to set goal points to moveit -->
+    <node pkg="panda_simulation2" type="planner_node" name="planner_node"> 
+    <rosparam command="load" file="$(find panda_moveit_config)/config/kinematics.yaml"/>
+    <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/>
+    <rosparam command="load" file="$(find panda_moveit_config)/config/ompl_planning.yaml"/>
+    </node>
+</launch>

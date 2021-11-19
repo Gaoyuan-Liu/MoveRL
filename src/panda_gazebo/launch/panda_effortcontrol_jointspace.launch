@@ -1,0 +1,29 @@
+<launch>
+
+  <!-- spawn panda robot in gazebo world -->
+  <include file="$(find panda_gazebo)/launch/panda_world.launch" />
+
+  <!-- ros_control panda effort launch file -->
+  <include file="$(find panda_control)/launch/panda_effortcontrol.launch" />
+
+  <!-- run effort control executable file-->
+  <node name="panda_effortcontrol_jointspace" pkg="panda_control" type="panda_effortcontrol_jointspace" output="screen" />
+
+  <!-- rqt -->
+  <node pkg="rqt_plot" type="rqt_plot" name="q_plot" args="/panda/joint_states/position[2]
+                                                            /panda/joint_states/position[3]
+                                                            /panda/joint_states/position[4]
+                                                            /panda/joint_states/position[5]
+                                                            /panda/joint_states/position[6]
+                                                            /panda/joint_states/position[7]
+                                                            /panda/joint_states/position[8]"/>
+  <node pkg="rqt_plot" type="rqt_plot" name="effort_plot" args="/panda/joint_states/effort[2]
+                                                                /panda/joint_states/effort[3]
+                                                                /panda/joint_states/effort[4]
+                                                                /panda/joint_states/effort[5]
+                                                                /panda/joint_states/effort[6]
+                                                                /panda/joint_states/effort[7]
+                                                                /panda/joint_states/effort[8]"/>
+
+
+</launch>

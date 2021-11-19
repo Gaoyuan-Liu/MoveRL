@@ -1,0 +1,14 @@
+<launch>
+
+    <!--<arg name="path" default="/home/liu/mrs_moveit/maps/simple_maze_octomap.bt"/>-->
+    <arg name="path" default="/home/liu/panda_rl_2/human_octomap.bt"/>
+    
+    <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_map" args="0 0 0 0 0 0 world map" />
+
+    <node pkg="octomap_server" type="octomap_server_node" name="octomap_talker" output="screen" args="$(arg path)">
+    </node>
+
+    <node pkg="load_octomap" type="octoload.py" name="moveit_octomap_handler" output="screen">
+    </node>
+
+</launch>

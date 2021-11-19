@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: scene_objects
+Description: Description of scene_objects
+Version: 0.0.0
+Cflags: -I/home/liu/MoveRL/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

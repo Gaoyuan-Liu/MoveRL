@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find panda_control)/config/panda_effortcontrol.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/panda" args="joint_state_controller
+					  joint1_effort_controller
+            joint2_effort_controller
+            joint3_effort_controller
+            joint4_effort_controller
+            joint5_effort_controller
+            joint6_effort_controller
+            joint7_effort_controller
+            joint_leftfinger_position_controller
+            joint_rightfinger_position_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/panda/joint_states" />
+  </node>
+
+</launch>

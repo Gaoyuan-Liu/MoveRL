@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/install
+
+Name: panda_replanning
+Description: Description of panda_replanning
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

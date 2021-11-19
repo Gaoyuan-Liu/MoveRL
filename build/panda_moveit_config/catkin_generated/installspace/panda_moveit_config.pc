@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/install
+
+Name: panda_moveit_config
+Description: Description of panda_moveit_config
+Version: 0.7.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

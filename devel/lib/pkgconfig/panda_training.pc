@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: panda_training
+Description: Description of panda_training
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

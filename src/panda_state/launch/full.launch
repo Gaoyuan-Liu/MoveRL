@@ -1,0 +1,8 @@
+  <launch>
+  
+  <!--launch the controllers -->
+  <include file="$(find panda_gazebo)/launch/panda_basic.launch"/>
+
+  <include file="$(find panda_state)/launch/simulation.launch"/>
+
+</launch>

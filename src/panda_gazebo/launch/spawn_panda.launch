@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/> <!-- false -->
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="world_name" default="training_world.world"/>
+
+  <!-- This argument sets the initial joint states -->
+  <arg name="initial_joint_states"
+  default=" -J panda::panda_joint1 0.00
+            -J panda::panda_joint2 0.00
+            -J panda::panda_joint3 0.00
+            -J panda::panda_joint4 -0.50 
+            -J panda::panda_joint5 0.00
+            -J panda::panda_joint6 0.50 
+            -J panda::panda_joint7 0.00"/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro '$(find panda_description)/urdf/panda_arm_hand.urdf.xacro'" />
+
+
+  <!-- Specify the loacation of the robot -->
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="1.0"/>
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model panda -param robot_description $(arg initial_joint_states) -unpause
+          -x $(arg x)
+          -y $(arg y)
+          -z $(arg z)"/>
+
+</launch>

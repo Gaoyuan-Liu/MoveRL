@@ -1,0 +1,40 @@
+<launch>
+  
+  <!--<group ns="panda">-->
+  <!-- Launch the world and spawn the robot -->
+  <include file="$(find panda_gazebo)/launch/gazebo_world.launch">
+    <!--<arg name="world_name" value="moving_cylinder_x1.world"/>-->
+  </include>
+
+  <include file="$(find panda_gazebo)/launch/spawn_panda.launch">
+    <!--<arg name="world_name" value="commuting_cylinder.world"/>-->
+  </include>
+
+  
+  <!-- Launch move_group -->
+  <include file="$(find panda_moveit_config)/launch/move_group.launch">
+    <arg name="load_gripper" value="false" />
+    <arg name="fake_execution" value="false"/>
+  </include>
+
+  <!-- Launch rviz -->
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch"/>
+
+  <!-- Action space -->
+  <include file="$(find panda_control)/launch/panda_trajectorycontrol.launch"/>
+  
+  <!-- State space -->
+  <include file="$(find panda_state)/launch/observation.launch"/>
+
+  <!-- Panda cmd service -->
+  <!--<include file="$(find rl_interface)/launch/cmd_service_traj.launch"/>-->
+
+  <!-- Add static objects -->
+  <!--<include file="$(find scene_objects)/launch/add_objects.launch"/>-->
+  <!--<include file="$(find scene_objects)/launch/dynamic_objects.launch"/>-->
+
+  <!-- Planning scene service -->
+  <!--<include file="$(find scene_objects)/launch/add_objects_service.launch"/>-->
+
+
+</launch>

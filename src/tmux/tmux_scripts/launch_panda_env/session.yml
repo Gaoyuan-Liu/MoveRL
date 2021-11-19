@@ -1,0 +1,11 @@
+name: simulation
+root: ./
+#startup_window: status
+pre_window: cd ../../../..; source ~/venv/bin/activate; source devel/setup.bash; source src/commander/shell_additions/shell_additions.sh
+windows:
+  - rl_interface:
+      layout: tiled
+      panes:
+        - roslaunch rl_interface main_traj.launch
+        - waitForSimulation; waitForMoveit
+

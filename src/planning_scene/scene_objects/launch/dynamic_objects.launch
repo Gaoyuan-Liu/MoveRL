@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="dynamic_objects" pkg="scene_objects" type="dynamic_objects.py" respawn="false" output="screen">
+  </node>
+
+</launch>

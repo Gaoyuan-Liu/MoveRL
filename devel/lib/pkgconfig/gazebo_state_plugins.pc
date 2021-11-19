@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: gazebo_state_plugins
+Description: Description of gazebo_state_plugins
+Version: 1.0.2
+Cflags: -I/home/liu/MoveRL/src/gazebo-pkgs/gazebo_state_plugins/include
+Libs: -L${prefix}/lib -lgazebo_state_plugins -lgazebo_map_publisher
+Requires: geometry_msgs roscpp shape_msgs std_msgs nav_msgs gazebo_world_plugin_loader gazebo_ros object_msgs object_msgs_tools eigen_conversions gazebo_ros

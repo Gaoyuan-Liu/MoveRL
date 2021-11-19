@@ -1,0 +1,3 @@
+<launch>
+  <node name="panda_cmd_server" pkg="rl_interface" type="cmd_service_traj.py" ></node>
+</launch>

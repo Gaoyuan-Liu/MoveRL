@@ -1,0 +1,6 @@
+std_msgs/String shape
+std_msgs/String name
+geometry_msgs/PoseStamped pose
+std_msgs/Float64MultiArray size
+---
+std_msgs/Bool success

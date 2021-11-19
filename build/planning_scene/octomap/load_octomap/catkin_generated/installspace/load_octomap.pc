@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/install
+
+Name: load_octomap
+Description: Description of load_octomap
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

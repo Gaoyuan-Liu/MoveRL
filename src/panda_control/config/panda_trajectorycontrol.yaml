@@ -1,0 +1,78 @@
+panda: 
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  panda_arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    constraints:
+      goal_time: 2.0
+      stopped_position_tolerance: 0
+      stopped_velocity_tolerance: 0
+    
+    gains: # Required because we're controlling an effort interface
+      panda_joint1 : {p: 10000.0, i: 100, d: 100}
+      panda_joint2 : {p: 10000.0, i: 100, d: 100}
+      panda_joint3 : {p: 10000.0, i: 100, d: 100}
+      panda_joint4 : {p: 10000.0, i: 100, d: 100}
+      panda_joint5 : {p: 10000.0, i: 100, d: 100}
+      panda_joint6 : {p: 10000.0, i: 100, d: 100}
+      panda_joint7 : {p: 1000.0, i: 100, d: 100}
+    #   # panda_joint1 : {p: 120.0, i: 100.0, d: 0.0}
+      # panda_joint2 : {p: 100.0, i: 10.0, d: 0.0}
+      # panda_joint3 : {p: 180.0, i: 100.0, d: 0.0}
+      # panda_joint4 : {p: 180.0, i: 100.0, d: 0.0}
+      # panda_joint5 : {p: 70.0, i: 100.0, d: 0.0}
+      # panda_joint6 : {p: 20.0, i: 100.0, d: 0.0}
+      # panda_joint7 : {p: 20.0, i: 100.0, d: 0.0}
+
+    state_publish_rate: 50
+    
+
+  # joint_leftfinger_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: panda_finger_joint1
+  #   pid: {p: 5, i: 0, d: 3, i_clamp: 1}
+  # joint_rightfinger_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: panda_finger_joint2
+  #   pid: {p: 5, i: 0, d: 3, i_clamp: 1}
+
+  # panda_hand_controller:
+  #   type: effort_controllers/JointTrajectoryController
+  #   joints:
+  #     - panda_finger_joint1
+  #     - panda_finger_joint2
+  #   gains:
+  #     panda_finger_joint1 : {p: 10000, i: 0, d: 3, i_clamp: 1}
+  #     panda_finger_joint2 : {p: 10000, i: 0, d: 3, i_clamp: 1}
+    
+  #   state_publish_rate: 100
+
+
+  panda_hand_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - panda_finger_joint1
+    gains:
+      panda_finger_joint1 : {p: 10000, i: 0, d: 3, i_clamp: 1}
+
+    constraints:
+      goal_time: 2.0
+      stopped_position_tolerance: 0
+      stopped_velocity_tolerance: 0
+    
+    state_publish_rate: 100
+  
+  joint_rightfinger_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: panda_finger_joint2
+    pid: {p: 5, i: 0, d: 3, i_clamp: 1}

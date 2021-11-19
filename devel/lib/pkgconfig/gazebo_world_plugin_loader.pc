@@ -1,0 +1,8 @@
+prefix=/home/liu/MoveRL/devel
+
+Name: gazebo_world_plugin_loader
+Description: Description of gazebo_world_plugin_loader
+Version: 1.0.2
+Cflags: -I/home/liu/MoveRL/src/gazebo-pkgs/gazebo_world_plugin_loader/include
+Libs: -L${prefix}/lib -lgazebo_world_plugin_loader
+Requires: roscpp gazebo_ros gazebo_ros

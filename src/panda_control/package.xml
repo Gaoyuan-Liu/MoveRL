@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+  <name>panda_control</name>
+  <version>0.0.0</version>
+  <description>The panda_control package</description>
+
+  <maintainer email="kelly.merckaert@vub.be">Kelly Merckaert</maintainer>
+
+  <license>BSD</license>
+
+  <!-- <url type="repository">http://wiki.ros.org/panda_control</url> -->
+
+  <author email="kelly.merckaert@vub.be">Kelly Merckaert</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>kdl_parser</build_depend>
+  <build_depend>gazebo_ros_control </build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+
+  <run_depend>effort_controllers</run_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>kdl_parser</run_depend>
+  <run_depend>gazebo_ros_control </run_depend>
+
+  
+
+
+  <export>
+  </export>
+</package>

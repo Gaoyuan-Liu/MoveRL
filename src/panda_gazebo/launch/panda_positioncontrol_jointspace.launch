@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- spawn panda robot in gazebo world -->
+  <include file="$(find panda_gazebo)/launch/panda_world.launch" />
+
+  <!-- ros_control panda position launch file -->
+  <include file="$(find panda_control)/launch/panda_positioncontrol.launch" />
+
+  <!-- run position control executable file
+  <node name="panda_positioncontrol_jointspace" pkg="panda_control" type="panda_positioncontrol_jointspace" output="screen" />
+  -->
+</launch>

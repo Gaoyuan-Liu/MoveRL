@@ -1,0 +1,5 @@
+<launch>
+  <group ns="move_group_panda_1">
+    <node name="finger_2_follow" pkg="panda_control" type="finger_2_follow.py" ></node>
+  </group>
+</launch>

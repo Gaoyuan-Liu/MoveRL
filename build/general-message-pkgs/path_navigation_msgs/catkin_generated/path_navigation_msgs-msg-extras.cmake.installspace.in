@@ -1,0 +1,2 @@
+set(path_navigation_msgs_MESSAGE_FILES "msg/PathExecutionAction.msg;msg/PathExecutionActionGoal.msg;msg/PathExecutionActionResult.msg;msg/PathExecutionActionFeedback.msg;msg/PathExecutionGoal.msg;msg/PathExecutionResult.msg;msg/PathExecutionFeedback.msg;msg/TransformPathExecutionAction.msg;msg/TransformPathExecutionActionGoal.msg;msg/TransformPathExecutionActionResult.msg;msg/TransformPathExecutionActionFeedback.msg;msg/TransformPathExecutionGoal.msg;msg/TransformPathExecutionResult.msg;msg/TransformPathExecutionFeedback.msg")
+set(path_navigation_msgs_SERVICE_FILES "")
