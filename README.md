@@ -8,7 +8,7 @@ MoveRL is a Robotic Reinforcement Learning Environment which is compatible with 
 
 MoveRL won BNAIC 2021 [Best Paper Award](https://ai.vub.ac.be/ai-lab-wins-two-awards-at-bnaic-2021/?utm_source=www.google.com&utm_medium=organic&utm_campaign=Google&referrer-analytics=1).
 
-This work currently in beta state, a user manual will be add soon, please contact me if you need help to use it in your own projects: 
+This work currently in beta state, a user manual will be added soon, please contact me if you need help to use it in your own projects: 
 
 gaoyuan.liu@vub.be
 
